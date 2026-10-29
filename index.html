@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поддержать ARIXX</title>
+    <style>
+        :root {
+            --bg-color: #0d0b18;
+            --panel-color: #16122c;
+            --neon-purple: #bc13fe;
+            --neon-glow: #d66eff;
+            --text-color: #ffffff;
+            --text-muted: #a5a1b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: var(--panel-color);
+            width: 100%;
+            max-width: 450px;
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(188, 19, 254, 0.15), 
+                        inset 0 0 15px rgba(188, 19, 254, 0.1);
+            border: 1px solid rgba(188, 19, 254, 0.3);
+            position: relative;
+        }
+
+        /* Неоновый аватар/логотип */
+        .avatar-glow {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--neon-purple), var(--neon-glow));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            box-shadow: 0 0 25px var(--neon-purple);
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px var(--neon-purple);
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        /* Пресеты сумм */
+        .amount-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .amount-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(188, 19, 254, 0.2);
+            color: var(--text-color);
+            padding: 14px 0;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .amount-btn:hover, .amount-btn.active {
+            background: var(--neon-purple);
+            box-shadow: 0 0 15px var(--neon-purple);
+            border-color: var(--neon-glow);
+            transform: translateY(-2px);
+        }
+
+        /* Инструкция и реквизиты */
+        .payment-info {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .info-title {
+            font-size: 14px;
+            color: var(--neon-glow);
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-number-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255,255,255,0.05);
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            font-family: monospace;
+            letter-spacing: 1px;
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: var(--neon-glow);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: rgba(188, 19, 254, 0.2);
+        }
+
+        .steps {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .steps ol {
+            padding-left: 18px;
+        }
+
+        .steps li {
+            margin-bottom: 6px;
+        }
+
+        /* Главная кнопка действия */
+        .action-btn {
+            width: 100%;
+            background: linear-gradient(90deg, var(--neon-purple), #8906c6);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(188, 19, 254, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            box-shadow: 0 0 25px var(--neon-purple);
+            transform: translateY(-1px);
+        }
+
+        .footer-note {
+            margin-top: 20px;
+            font-size: 11px;
+            color: rgba(255,255,255,0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="avatar-glow">A</div>
+        <h1>ARIXX</h1>
+        <p class="subtitle">Поддержать автора и его творчество</p>
+
+        <!-- Быстрый выбор сумм -->
+        <div class="amount-grid">
+            <button class="amount-btn" onclick="selectAmount(500, this)">500 ₸</button>
+            <button class="amount-btn" onclick="selectAmount(1000, this)">1 000 ₸</button>
+            <button class="amount-btn" onclick="selectAmount(2000, this)">2 000 ₸</button>
+            <button class="amount-btn" onclick="selectAmount(5000, this)">5 000 ₸</button>
+            <button class="amount-btn" onclick="selectAmount(10000, this)">10 000 ₸</button>
+            <button class="amount-btn" onclick="selectAmount('Другая', this)">Своя</button>
+        </div>
+
+        <!-- Реквизиты и Инструкция -->
+        <div class="payment-info">
+            <div class="info-title">Реквизиты перевода Kaspi Gold</div>
+            <div class="card-number-box">
+                <span id="cardNumber">4400 4300 1657 9333</span> <!-- ЗАМЕНИТЕ НА СВОЙ НОМЕР КАРТЫ -->
+                <button class="copy-btn" onclick="copyCardNumber(this)">Копировать</button>
+            </div>
+            
+            <div class="info-title">Как отправить донат?</div>
+            <div class="steps">
+                <ol>
+                    <li>Скопируйте номер карты выше.</li>
+                    <li>Откройте приложение <strong>Kaspi.kz</strong>.</li>
+                    <li>Перейдите в раздел <strong>Переводы → Клиенту Kaspi</strong> (или по номеру карты).</li>
+                    <li>Вставьте номер, укажите выбранную сумму <span id="chosenAmount" style="color:var(--neon-glow); font-weight:bold;">(Выбрано: 500 ₸)</span> и отправьте перевод.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Кнопка перехода в Kaspi (для мобильных) -->
+        <button class="action-btn" onclick="openKaspi()">Открыть приложение Kaspi</button>
+        
+        <p class="footer-note">Внимание: это страница для прямых ручных переводов. Автоматическая проверка платежей отсутствует.</p>
+    </div>
+
+    <script>
+        // Функция выбора суммы
+        function selectAmount(amount, button) {
+            // Удаляем активный класс со всех кнопок
+            document.querySelectorAll('.amount-btn').forEach(btn => btn.classList.remove('active'));
+            // Добавляем нажатой
+            button.classList.add('active');
+            
+            // Обновляем текст в инструкции
+            const displayAmount = typeof amount === 'number' ? amount.toLocaleString('ru-RU') + ' ₸' : amount;
+            document.getElementById('chosenAmount').innerText = `(Выбрано: ${displayAmount})`;
+        }
+
+        // Функция копирования номера карты
+        function copyCardNumber(button) {
+            const cardNumber = document.getElementById('cardNumber').innerText.replace(/\s/g, '');
+            navigator.clipboard.writeText(cardNumber).then(() => {
+                const originalText = button.innerText;
+                button.innerText = 'Скопировано!';
+                button.style.color = '#00ffcc';
+                setTimeout(() => {
+                    button.innerText = originalText;
+                    button.style.color = 'var(--neon-glow)';
+                }, 2000);
+            });
+        }
+
+        // Попытка открыть Kaspi на телефоне (deep link)
+        function openKaspi() {
+            // Ссылка-редирект на приложение Kaspi
+            window.location.href = "kaspiurl://";
+            
+            // Если через 2 секунды приложение не открылось (пользователь на ПК), уведомляем
+            setTimeout(() => {
+                alert("Если приложение Kaspi не открылось автоматически, перейдите в него вручную на своем мобильном устройстве.");
+            }, 2000);
+        }
+        
+        // Установка первой суммы по умолчанию при старте
+        document.querySelector('.amount-btn').classList.add('active');
+    </script>
+</body>
+</html>
